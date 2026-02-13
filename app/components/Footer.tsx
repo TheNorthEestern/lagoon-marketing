@@ -2,8 +2,8 @@ const navigation = [
   { name: "About", href: "#" },
   { name: "Documentation", href: "#" },
   { name: "Support", href: "#" },
-  { name: "Privacy Policy", href: "#" },
-  { name: "Terms of Service", href: "#" },
+  { name: "Privacy Policy", href: "/privacy" },
+  { name: "Terms of Service", href: "/terms" },
 ];
 
 const social = [
