@@ -14,13 +14,12 @@ export default function Home() {
       <section id="features">
         <FeatureCarousel />
       </section>
-      <section id="how-it-works">
+      {/* <section id="how-it-works">
         <HowItWorks />
-      </section>
+      </section> */}
       <section id="faq">
         <FAQ />
       </section>
-      <div className="section-divider" />
       <section id="pricing">
         <Pricing />
       </section>

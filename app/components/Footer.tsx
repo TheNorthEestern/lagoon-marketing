@@ -33,7 +33,7 @@ const social = [
 
 export default function Footer() {
   return (
-    <footer className="border-t border-border px-6 py-12">
+    <footer className="px-6 py-12">
       <div className="mx-auto max-w-[1200px]">
         <div className="flex flex-col items-center gap-8 sm:flex-row sm:justify-between">
           {/* Logo */}
@@ -76,7 +76,7 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="mt-8 border-t border-border pt-8 text-center text-xs text-text-secondary">
+        <div className="mt-8 pt-8 text-center text-xs text-text-secondary">
           &copy; {new Date().getFullYear()} Lagoon Studio. All rights reserved.
           macOS and Apple Silicon are trademarks of Apple Inc.
         </div>
