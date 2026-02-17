@@ -38,7 +38,10 @@ export default function RootLayout({
     <html lang="en" className="dark">
       <body className={`${inter.variable} antialiased`}>
         {children}
-        <Script src="https://assets.lemonsqueezy.com/lemon.js" strategy="beforeInteractive" />
+        <Script
+          src="https://assets.lemonsqueezy.com/lemon.js"
+          strategy="afterInteractive"
+        />
       </body>
     </html>
   );

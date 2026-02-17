@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useCallback } from "react";
+import { useState, useCallback, useEffect } from "react";
 import { motion } from "motion/react";
 import Navigation from "./Navigation";
 import Hero from "./Hero";
@@ -19,8 +19,24 @@ export default function PageContent() {
     setIntroComplete(true);
   }, []);
 
+  useEffect(() => {
+    const init = () => (window as any).createLemonSqueezy?.();
+    if ((window as any).createLemonSqueezy) {
+      init();
+      return;
+    }
+    const interval = setInterval(() => {
+      if ((window as any).createLemonSqueezy) {
+        init();
+        clearInterval(interval);
+      }
+    }, 200);
+    return () => clearInterval(interval);
+  }, []);
+
   const openCheckout = useCallback((e: React.MouseEvent) => {
     e.preventDefault();
+    (window as any).createLemonSqueezy?.();
     (window as any).LemonSqueezy?.Url?.Open?.(CHECKOUT_URL);
   }, []);
 
@@ -65,7 +81,7 @@ export default function PageContent() {
             <a
               href={CHECKOUT_URL}
               onClick={openCheckout}
-              className="mt-10 inline-block rounded-full bg-accent px-8 py-4 text-lg font-bold text-white transition-colors hover:bg-accent-hover"
+              className="lemonsqueezy-button mt-10 inline-block rounded-full bg-accent px-8 py-4 text-lg font-bold text-white transition-colors hover:bg-accent-hover"
             >
               Download for macOS
             </a>

@@ -59,6 +59,7 @@ export default function Hero({ onIntroComplete }: { onIntroComplete?: () => void
 
   const openCheckout = useCallback((e: React.MouseEvent) => {
     e.preventDefault();
+    (window as any).createLemonSqueezy?.();
     (window as any).LemonSqueezy?.Url?.Open?.(CHECKOUT_URL);
   }, []);
 
@@ -96,7 +97,7 @@ export default function Hero({ onIntroComplete }: { onIntroComplete?: () => void
           <a
             href={CHECKOUT_URL}
             onClick={openCheckout}
-            className="mt-8 inline-block rounded-full bg-accent px-6 py-3 text-sm font-bold text-white transition-colors hover:bg-accent-hover sm:mt-10 sm:px-8 sm:py-3.5 sm:text-base"
+            className="lemonsqueezy-button mt-8 inline-block rounded-full bg-accent px-6 py-3 text-sm font-bold text-white transition-colors hover:bg-accent-hover sm:mt-10 sm:px-8 sm:py-3.5 sm:text-base"
           >
             Download the Beta
           </a>
@@ -159,7 +160,7 @@ export default function Hero({ onIntroComplete }: { onIntroComplete?: () => void
         <a
           href={CHECKOUT_URL}
           onClick={openCheckout}
-          className="mt-8 inline-block rounded-full bg-accent px-6 py-3 text-sm font-bold text-white transition-colors hover:bg-accent-hover sm:mt-10 sm:px-8 sm:py-3.5 sm:text-base"
+          className="lemonsqueezy-button mt-8 inline-block rounded-full bg-accent px-6 py-3 text-sm font-bold text-white transition-colors hover:bg-accent-hover sm:mt-10 sm:px-8 sm:py-3.5 sm:text-base"
         >
           Download the Beta
         </a>
