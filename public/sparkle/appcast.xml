@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0" xmlns:sparkle="http://www.andymatuschak.org/xml-namespaces/sparkle" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>Lagoon Studio Updates</title>
+    <link>https://lagoon.video/sparkle/appcast.xml</link>
+    <description>Most recent updates to Lagoon Studio</description>
+    <language>en</language>
+
+    <!--
+      To add a new release, copy the <item> block below and fill in:
+        - sparkle:version        Build number (e.g. 12)
+        - sparkle:shortVersionString  Marketing version (e.g. 1.0.1)
+        - title                  Release title shown to users
+        - pubDate                RFC 2822 date: date -R
+        - description            HTML release notes (inside CDATA)
+        - enclosure url          GitHub Releases download URL for the DMG
+        - enclosure sparkle:edSignature  Output of: sign_update Lagoon-Studio-{VERSION}.dmg
+        - enclosure length       File size in bytes: stat -f%z Lagoon-Studio-{VERSION}.dmg
+        - enclosure type         Always application/octet-stream for DMG
+    -->
+
+    <item>
+      <title>Lagoon Studio 1.0.0</title>
+      <pubDate>Mon, 16 Feb 2026 12:00:00 -0800</pubDate>
+      <sparkle:version>1</sparkle:version>
+      <sparkle:shortVersionString>1.0.0</sparkle:shortVersionString>
+      <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
+      <description><![CDATA[
+        <h2>Lagoon Studio 1.0.0</h2>
+        <ul>
+          <li>Initial release</li>
+        </ul>
+      ]]></description>
+      <enclosure
+        url="https://github.com/anthropics/lagoon-studio/releases/download/v1.0.0/Lagoon-Studio-1.0.0.dmg"
+        type="application/octet-stream"
+        sparkle:edSignature="REPLACE_WITH_ED_SIGNATURE"
+        length="0"
+      />
+    </item>
+
+  </channel>
+</rss>
