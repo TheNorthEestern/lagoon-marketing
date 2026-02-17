@@ -1,10 +1,10 @@
 "use client";
 
-import { useState, useEffect, useLayoutEffect, useRef, useCallback } from "react";
+import { useState, useEffect, useLayoutEffect, useRef } from "react";
 import { motion } from "motion/react";
 
 const CHECKOUT_URL =
-  "https://lagoonstudio.lemonsqueezy.com/checkout/buy/3cf7b5ae-1613-4142-a8cd-1555163c4eb8?embed=1";
+  "https://lagoonstudio.lemonsqueezy.com/checkout/buy/3cf7b5ae-1613-4142-a8cd-1555163c4eb8";
 
 export default function Hero({ onIntroComplete }: { onIntroComplete?: () => void }) {
   const [introPlaying, setIntroPlaying] = useState(true);
@@ -57,12 +57,6 @@ export default function Hero({ onIntroComplete }: { onIntroComplete?: () => void
     return () => clearTimeout(timer);
   }, [measured, onIntroComplete, autoplayBlocked]);
 
-  const openCheckout = useCallback((e: React.MouseEvent) => {
-    e.preventDefault();
-    (window as any).createLemonSqueezy?.();
-    (window as any).LemonSqueezy?.Url?.Open?.(CHECKOUT_URL);
-  }, []);
-
   const showIntro = introPlaying && !autoplayBlocked;
 
   // First render: plain div for measurement, invisible until useLayoutEffect fires
@@ -96,8 +90,7 @@ export default function Hero({ onIntroComplete }: { onIntroComplete?: () => void
           </p>
           <a
             href={CHECKOUT_URL}
-            onClick={openCheckout}
-            className="lemonsqueezy-button mt-8 inline-block rounded-full bg-accent px-6 py-3 text-sm font-bold text-white transition-colors hover:bg-accent-hover sm:mt-10 sm:px-8 sm:py-3.5 sm:text-base"
+            className="mt-8 inline-block rounded-full bg-accent px-6 py-3 text-sm font-bold text-white transition-colors hover:bg-accent-hover sm:mt-10 sm:px-8 sm:py-3.5 sm:text-base"
           >
             Download the Beta
           </a>
@@ -159,7 +152,6 @@ export default function Hero({ onIntroComplete }: { onIntroComplete?: () => void
         </p>
         <a
           href={CHECKOUT_URL}
-          onClick={openCheckout}
           className="lemonsqueezy-button mt-8 inline-block rounded-full bg-accent px-6 py-3 text-sm font-bold text-white transition-colors hover:bg-accent-hover sm:mt-10 sm:px-8 sm:py-3.5 sm:text-base"
         >
           Download the Beta

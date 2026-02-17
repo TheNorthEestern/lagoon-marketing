@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useCallback, useEffect } from "react";
+import { useState, useCallback } from "react";
 import { motion } from "motion/react";
 import Navigation from "./Navigation";
 import Hero from "./Hero";
@@ -10,34 +10,13 @@ import Pricing from "./Pricing";
 import Footer from "./Footer";
 
 const CHECKOUT_URL =
-  "https://lagoonstudio.lemonsqueezy.com/checkout/buy/3cf7b5ae-1613-4142-a8cd-1555163c4eb8?embed=1";
+  "https://lagoonstudio.lemonsqueezy.com/checkout/buy/3cf7b5ae-1613-4142-a8cd-1555163c4eb8";
 
 export default function PageContent() {
   const [introComplete, setIntroComplete] = useState(false);
 
   const handleIntroComplete = useCallback(() => {
     setIntroComplete(true);
-  }, []);
-
-  useEffect(() => {
-    const init = () => (window as any).createLemonSqueezy?.();
-    if ((window as any).createLemonSqueezy) {
-      init();
-      return;
-    }
-    const interval = setInterval(() => {
-      if ((window as any).createLemonSqueezy) {
-        init();
-        clearInterval(interval);
-      }
-    }, 200);
-    return () => clearInterval(interval);
-  }, []);
-
-  const openCheckout = useCallback((e: React.MouseEvent) => {
-    e.preventDefault();
-    (window as any).createLemonSqueezy?.();
-    (window as any).LemonSqueezy?.Url?.Open?.(CHECKOUT_URL);
   }, []);
 
   return (
@@ -80,8 +59,7 @@ export default function PageContent() {
             </p>
             <a
               href={CHECKOUT_URL}
-              onClick={openCheckout}
-              className="lemonsqueezy-button mt-10 inline-block rounded-full bg-accent px-8 py-4 text-lg font-bold text-white transition-colors hover:bg-accent-hover"
+              className="mt-10 inline-block rounded-full bg-accent px-8 py-4 text-lg font-bold text-white transition-colors hover:bg-accent-hover"
             >
               Download for macOS
             </a>
