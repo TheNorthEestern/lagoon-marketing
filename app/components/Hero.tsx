@@ -3,8 +3,8 @@
 import { useState, useEffect, useLayoutEffect, useRef } from "react";
 import { motion } from "motion/react";
 
-const CHECKOUT_URL =
-  "https://lagoonstudio.lemonsqueezy.com/checkout/buy/3cf7b5ae-1613-4142-a8cd-1555163c4eb8";
+const DOWNLOAD_URL =
+  "https://github.com/TheNorthEestern/lagoon-releases/releases/latest/download/Lagoon-Studio.dmg";
 
 export default function Hero({ onIntroComplete }: { onIntroComplete?: () => void }) {
   const [introPlaying, setIntroPlaying] = useState(true);
@@ -89,10 +89,10 @@ export default function Hero({ onIntroComplete }: { onIntroComplete?: () => void
             seconds. Native. Private. Optimized for Apple Silicon.
           </p>
           <a
-            href={CHECKOUT_URL}
+            href={DOWNLOAD_URL}
             className="mt-8 inline-block rounded-full bg-accent px-6 py-3 text-sm font-bold text-white transition-colors hover:bg-accent-hover sm:mt-10 sm:px-8 sm:py-3.5 sm:text-base"
           >
-            Download the Beta
+            Download for macOS
           </a>
           <p className="mt-3 text-xs text-text-secondary">
             macOS 14+ &middot; Apple Silicon optimized
@@ -151,10 +151,10 @@ export default function Hero({ onIntroComplete }: { onIntroComplete?: () => void
           seconds. Native. Private. Optimized for Apple Silicon.
         </p>
         <a
-          href={CHECKOUT_URL}
-          className="lemonsqueezy-button mt-8 inline-block rounded-full bg-accent px-6 py-3 text-sm font-bold text-white transition-colors hover:bg-accent-hover sm:mt-10 sm:px-8 sm:py-3.5 sm:text-base"
+          href={DOWNLOAD_URL}
+          className="mt-8 inline-block rounded-full bg-accent px-6 py-3 text-sm font-bold text-white transition-colors hover:bg-accent-hover sm:mt-10 sm:px-8 sm:py-3.5 sm:text-base"
         >
-          Download the Beta
+          Download for macOS
         </a>
         <p className="mt-3 text-xs text-text-secondary">
           macOS 14+ &middot; Apple Silicon optimized
