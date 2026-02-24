@@ -32,7 +32,7 @@
         </ul>
       ]]></description>
       <enclosure
-        url="https://github.com/anthropics/lagoon-studio/releases/download/v1.0.0/Lagoon-Studio-1.0.0.dmg"
+        url="https://github.com/TheNorthEestern/lagoon-releases/releases/download/v1.0.0/Lagoon-Studio.dmg"
         type="application/octet-stream"
         sparkle:edSignature="REPLACE_WITH_ED_SIGNATURE"
         length="0"

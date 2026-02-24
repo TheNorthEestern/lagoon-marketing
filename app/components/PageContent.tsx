@@ -9,8 +9,8 @@ import FAQ from "./FAQ";
 import Pricing from "./Pricing";
 import Footer from "./Footer";
 
-const CHECKOUT_URL =
-  "https://lagoonstudio.lemonsqueezy.com/checkout/buy/3cf7b5ae-1613-4142-a8cd-1555163c4eb8";
+const DOWNLOAD_URL =
+  "https://github.com/TheNorthEestern/lagoon-releases/releases/latest/download/Lagoon-Studio.dmg";
 
 export default function PageContent() {
   const [introComplete, setIntroComplete] = useState(false);
@@ -51,14 +51,14 @@ export default function PageContent() {
         <section id="download" className="px-6 py-24 sm:py-32">
           <div className="mx-auto max-w-2xl text-center">
             <h2 className="text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl">
-              Try the Public Beta
+              Download Lagoon Studio
             </h2>
             <p className="mx-auto mt-6 max-w-xl text-lg text-text-secondary">
-              Lagoon Studio is in public beta. Download it free, take it for a
-              spin, and help us shape the final release.
+              Download Lagoon Studio for free. Upgrade to a paid license
+              anytime from within the app.
             </p>
             <a
-              href={CHECKOUT_URL}
+              href={DOWNLOAD_URL}
               className="mt-10 inline-block rounded-full bg-accent px-8 py-4 text-lg font-bold text-white transition-colors hover:bg-accent-hover"
             >
               Download for macOS

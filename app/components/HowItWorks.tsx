@@ -17,7 +17,7 @@ const steps = [
     number: "3",
     title: "Export Your Clips",
     description:
-      "Download individual segments or compile them into a single highlight video with custom transitions.",
+      "Save individual segments or compile them into a single highlight video with custom transitions.",
     image: "/images/step-3.jpg",
   },
 ];
