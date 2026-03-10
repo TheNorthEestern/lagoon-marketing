@@ -12,6 +12,9 @@ export const metadata: Metadata = {
   title: "Lagoon Studio - Stop Scrubbing. Instantly Find the Action.",
   description:
     "Automatically detect interesting motion in hours of static footage. Filter out the noise, visualize the activity, and export your clips in seconds. Native. Private. Optimized for Apple Silicon.",
+  icons: {
+    icon: "/favicon.png",
+  },
   openGraph: {
     title: "Lagoon Studio - Stop Scrubbing. Instantly Find the Action.",
     description:
