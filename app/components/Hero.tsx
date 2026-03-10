@@ -163,7 +163,7 @@ export default function Hero({ onIntroComplete }: { onIntroComplete?: () => void
             Download for macOS
           </a>
           <p className="mt-3 text-xs text-text-secondary">
-            macOS 14+ &middot; Apple Silicon optimized
+            Free 7-day trial &middot; macOS 14+ &middot; Apple Silicon optimized
           </p>
         </div>
       </section>
