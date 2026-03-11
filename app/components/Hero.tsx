@@ -1,10 +1,16 @@
 "use client";
 
-import { useState, useEffect, useLayoutEffect, useRef } from "react";
+import { useState, useEffect, useLayoutEffect, useRef, useCallback } from "react";
 import { motion } from "motion/react";
 
 const DOWNLOAD_URL =
   "https://github.com/TheNorthEestern/lagoon-releases/releases/latest/download/Lagoon-Studio.dmg";
+
+const VIDEO_SOURCES = [
+  "/videos/hero-demo.mp4",
+  "/videos/hero-demo-2.mp4",
+  "/videos/hero-demo-3.mp4",
+];
 
 export default function Hero({ onIntroComplete }: { onIntroComplete?: () => void }) {
   const [introPlaying, setIntroPlaying] = useState(true);
@@ -12,11 +18,11 @@ export default function Hero({ onIntroComplete }: { onIntroComplete?: () => void
   const [introCenterY, setIntroCenterY] = useState(0);
   const [autoplayBlocked, setAutoplayBlocked] = useState(false);
   const [measured, setMeasured] = useState(false);
-  const [activeVideo, setActiveVideo] = useState<1 | 2>(1);
-  const [video2Loaded, setVideo2Loaded] = useState(false);
+  const [activeSlot, setActiveSlot] = useState<"a" | "b">("a");
+  const queueIndexRef = useRef(0);
   const videoContainerRef = useRef<HTMLDivElement>(null);
-  const videoRef = useRef<HTMLVideoElement>(null);
-  const video2Ref = useRef<HTMLVideoElement>(null);
+  const slotARef = useRef<HTMLVideoElement>(null);
+  const slotBRef = useRef<HTMLVideoElement>(null);
 
   useLayoutEffect(() => {
     const el = videoContainerRef.current;
@@ -37,7 +43,7 @@ export default function Hero({ onIntroComplete }: { onIntroComplete?: () => void
 
   useEffect(() => {
     if (!measured) return;
-    const video = videoRef.current;
+    const video = slotARef.current;
     if (!video) return;
 
     const playPromise = video.play();
@@ -60,65 +66,74 @@ export default function Hero({ onIntroComplete }: { onIntroComplete?: () => void
     return () => clearTimeout(timer);
   }, [measured, onIntroComplete, autoplayBlocked]);
 
-  // Crossfade logic: when a video ends, switch to the other
+  const getNextSlot = useCallback(
+    (current: "a" | "b") => (current === "a" ? "b" : "a"),
+    []
+  );
+
+  const getSlotRef = useCallback(
+    (slot: "a" | "b") => (slot === "a" ? slotARef : slotBRef),
+    []
+  );
+
+  // Crossfade logic: cycle through VIDEO_SOURCES using two alternating slots
   useEffect(() => {
-    const video1 = videoRef.current;
-    const video2 = video2Ref.current;
-    if (!video1) return;
+    const slotA = slotARef.current;
+    const slotB = slotBRef.current;
+    if (!slotA || !slotB) return;
 
-    let video1PreloadTriggered = false;
-    let video2FadeTriggered = false;
+    let fadeTriggered = false;
 
-    // Pre-start video 2 during the crossfade window before video 1 ends
-    const handleVideo1TimeUpdate = () => {
-      if (!video2 || video1PreloadTriggered) return;
-      const timeLeft = video1.duration - video1.currentTime;
-      if (timeLeft <= 1) {
-        video1PreloadTriggered = true;
-        if (!video2Loaded) {
-          video2.src = "/videos/hero-demo-2.mp4";
-          video2.load();
-          setVideo2Loaded(true);
-        } else {
-          video2.currentTime = 0;
-        }
-        video2.play().catch(() => {});
-      }
+    const isLastVideo = () =>
+      queueIndexRef.current === VIDEO_SOURCES.length - 1;
+
+    const advanceToNext = (currentSlot: "a" | "b") => {
+      const nextIndex = (queueIndexRef.current + 1) % VIDEO_SOURCES.length;
+      const nextSlot = getNextSlot(currentSlot);
+      const nextVideo = getSlotRef(nextSlot).current!;
+      nextVideo.src = VIDEO_SOURCES[nextIndex];
+      nextVideo.load();
+      nextVideo.play().catch(() => {});
+      setActiveSlot(nextSlot);
     };
 
-    const handleVideo1End = () => {
-      video1PreloadTriggered = false;
-      setActiveVideo(2);
-    };
-
-    // Pre-start video 1 during the crossfade window before video 2 ends
-    const handleVideo2TimeUpdate = () => {
-      if (!video2 || video2FadeTriggered) return;
-      const timeLeft = video2.duration - video2.currentTime;
+    const handleTimeUpdate = (currentSlot: "a" | "b") => {
+      if (fadeTriggered || isLastVideo()) return;
+      const current = getSlotRef(currentSlot).current!;
+      const timeLeft = current.duration - current.currentTime;
       if (timeLeft <= 2) {
-        video2FadeTriggered = true;
-        video1.currentTime = 0;
-        video1.play().catch(() => {});
-        setActiveVideo(1);
+        fadeTriggered = true;
+        advanceToNext(currentSlot);
       }
     };
 
-    const handleVideo2End = () => {
-      video2FadeTriggered = false;
+    const handleEnded = (currentSlot: "a" | "b") => {
+      // Last video plays fully, then crossfade on ended
+      if (isLastVideo() && !fadeTriggered) {
+        fadeTriggered = true;
+        advanceToNext(currentSlot);
+      }
+      fadeTriggered = false;
+      queueIndexRef.current = (queueIndexRef.current + 1) % VIDEO_SOURCES.length;
     };
 
-    video1.addEventListener("timeupdate", handleVideo1TimeUpdate);
-    video1.addEventListener("ended", handleVideo1End);
-    video2?.addEventListener("timeupdate", handleVideo2TimeUpdate);
-    video2?.addEventListener("ended", handleVideo2End);
+    const onSlotATimeUpdate = () => handleTimeUpdate("a");
+    const onSlotBTimeUpdate = () => handleTimeUpdate("b");
+    const onSlotAEnded = () => handleEnded("a");
+    const onSlotBEnded = () => handleEnded("b");
+
+    slotA.addEventListener("timeupdate", onSlotATimeUpdate);
+    slotA.addEventListener("ended", onSlotAEnded);
+    slotB.addEventListener("timeupdate", onSlotBTimeUpdate);
+    slotB.addEventListener("ended", onSlotBEnded);
 
     return () => {
-      video1.removeEventListener("timeupdate", handleVideo1TimeUpdate);
-      video1.removeEventListener("ended", handleVideo1End);
-      video2?.removeEventListener("timeupdate", handleVideo2TimeUpdate);
-      video2?.removeEventListener("ended", handleVideo2End);
+      slotA.removeEventListener("timeupdate", onSlotATimeUpdate);
+      slotA.removeEventListener("ended", onSlotAEnded);
+      slotB.removeEventListener("timeupdate", onSlotBTimeUpdate);
+      slotB.removeEventListener("ended", onSlotBEnded);
     };
-  }, [measured, video2Loaded]);
+  }, [measured, getNextSlot, getSlotRef]);
 
   const showIntro = introPlaying && !autoplayBlocked;
 
@@ -129,7 +144,7 @@ export default function Hero({ onIntroComplete }: { onIntroComplete?: () => void
         <div ref={videoContainerRef} className="w-full max-w-[1200px]">
           <div className="aspect-video w-full relative">
             <video
-              ref={videoRef}
+              ref={slotARef}
               className="absolute inset-0 h-full w-full object-contain"
               poster="/images/hero-poster.jpg"
               playsInline
@@ -138,7 +153,7 @@ export default function Hero({ onIntroComplete }: { onIntroComplete?: () => void
               <source src="/videos/hero-demo.mp4" type="video/mp4" />
             </video>
             <video
-              ref={video2Ref}
+              ref={slotBRef}
               className="absolute inset-0 h-full w-full object-contain opacity-0"
               playsInline
               muted
@@ -190,9 +205,9 @@ export default function Hero({ onIntroComplete }: { onIntroComplete?: () => void
       >
         <div className="aspect-video w-full relative">
           <video
-            ref={videoRef}
+            ref={slotARef}
             className="absolute inset-0 h-full w-full object-contain transition-opacity duration-1000"
-            style={{ opacity: activeVideo === 1 ? 1 : 0 }}
+            style={{ opacity: activeSlot === "a" ? 1 : 0 }}
             poster="/images/hero-poster.jpg"
             playsInline
             muted
@@ -200,9 +215,9 @@ export default function Hero({ onIntroComplete }: { onIntroComplete?: () => void
             <source src="/videos/hero-demo.mp4" type="video/mp4" />
           </video>
           <video
-            ref={video2Ref}
+            ref={slotBRef}
             className="absolute inset-0 h-full w-full object-contain transition-opacity duration-1000"
-            style={{ opacity: activeVideo === 2 ? 1 : 0 }}
+            style={{ opacity: activeSlot === "b" ? 1 : 0 }}
             playsInline
             muted
           />
