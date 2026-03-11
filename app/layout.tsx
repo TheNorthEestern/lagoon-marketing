@@ -9,25 +9,25 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Lagoon Studio - Stop Scrubbing. Instantly Find the Action.",
+  title: "Lagoon Studio - Stop scrubbing. Instantly find the action.",
   description:
-    "Automatically detect interesting motion in hours of static footage. Filter out the noise, visualize the activity, and export your clips in seconds. Native. Private. Optimized for Apple Silicon.",
+    "Automatically detect interesting motion in your videos. Filter out the noise, visualize the activity, and export your clips in seconds. Native. Private. Optimized for Apple Silicon.",
   icons: {
     icon: "/favicon.png",
   },
   openGraph: {
-    title: "Lagoon Studio - Stop Scrubbing. Instantly Find the Action.",
+    title: "Lagoon Studio - Stop scrubbing. Instantly find the action.",
     description:
-      "Automatically detect interesting motion in hours of static footage. Coming soon for macOS.",
+      "Automatically detect interesting motion in your videos. Coming soon for macOS.",
     type: "website",
     locale: "en_US",
     siteName: "Lagoon Studio",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Lagoon Studio - Stop Scrubbing. Instantly Find the Action.",
+    title: "Lagoon Studio - Stop scrubbing. Instantly find the action.",
     description:
-      "Automatically detect interesting motion in hours of static footage. Coming soon for macOS.",
+      "Automatically detect interesting motion in your videos. Coming soon for macOS.",
   },
 };
 

@@ -6,7 +6,6 @@ import Navigation from "./Navigation";
 import Hero from "./Hero";
 import FeatureCarousel from "./FeatureCarousel";
 import FAQ from "./FAQ";
-import Pricing from "./Pricing";
 import Footer from "./Footer";
 
 const DOWNLOAD_URL =
@@ -14,9 +13,18 @@ const DOWNLOAD_URL =
 
 export default function PageContent() {
   const [introComplete, setIntroComplete] = useState(false);
+  const [replayCount, setReplayCount] = useState(0);
 
   const handleIntroComplete = useCallback(() => {
     setIntroComplete(true);
+  }, []);
+
+  const handleIntroStart = useCallback(() => {
+    setIntroComplete(false);
+  }, []);
+
+  const handleReplayIntro = useCallback(() => {
+    setReplayCount((c) => c + 1);
   }, []);
 
   return (
@@ -25,11 +33,16 @@ export default function PageContent() {
         initial={{ opacity: 0 }}
         animate={introComplete ? { opacity: 1 } : { opacity: 0 }}
         transition={{ duration: 0.8, ease: "easeOut" }}
+        style={{ pointerEvents: introComplete ? "auto" : "none" }}
       >
-        <Navigation />
+        <Navigation onReplayIntro={handleReplayIntro} />
       </motion.div>
 
-      <Hero onIntroComplete={handleIntroComplete} />
+      <Hero
+        onIntroComplete={handleIntroComplete}
+        onIntroStart={handleIntroStart}
+        replayCount={replayCount}
+      />
 
       <motion.div
         initial={{ opacity: 0 }}

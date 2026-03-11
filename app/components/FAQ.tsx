@@ -31,7 +31,7 @@ const faqs = [
   {
     question: "What if I have a large file?",
     answer:
-      "Lagoon is optimized for files up to 6+ hours. Processing time scales linearly with video length.",
+      "Lagoon handles large files with ease. Processing time scales linearly with video length.",
   },
   {
     question: "Can I export individual clips or full compilations?",

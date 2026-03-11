@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { IconRefresh } from "@tabler/icons-react";
 import {
   Navbar,
   NavBody,
@@ -18,9 +19,12 @@ const navItems = [
   { name: "Pricing", link: "#pricing" },
 ];
 
-export default function Navigation() {
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+interface NavigationProps {
+  onReplayIntro?: () => void;
+}
 
+export default function Navigation({ onReplayIntro }: NavigationProps) {
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   return (
     <Navbar>
       {/* Desktop */}
@@ -39,7 +43,13 @@ export default function Navigation() {
           </span>
         </a>
         <NavItems items={navItems} />
-        <div className="relative z-20 w-0" />
+        <button
+          onClick={onReplayIntro}
+          className="relative z-20 flex items-center gap-1.5 rounded-full border border-neutral-700 bg-neutral-900/80 px-3 py-1.5 text-sm text-neutral-400 backdrop-blur-sm transition-colors hover:border-neutral-500 hover:text-white"
+        >
+          <IconRefresh size={16} />
+          Replay Intro
+        </button>
       </NavBody>
 
       {/* Mobile */}
@@ -58,10 +68,18 @@ export default function Navigation() {
               Lagoon Studio
             </span>
           </a>
-          <MobileNavToggle
-            isOpen={isMobileMenuOpen}
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-          />
+          <div className="flex items-center gap-2">
+            <button
+              onClick={onReplayIntro}
+              className="flex items-center justify-center rounded-full border border-neutral-700 bg-neutral-900/80 p-1.5 text-neutral-400 transition-colors hover:border-neutral-500 hover:text-white"
+            >
+              <IconRefresh size={16} />
+            </button>
+            <MobileNavToggle
+              isOpen={isMobileMenuOpen}
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            />
+          </div>
         </MobileNavHeader>
         <MobileNavMenu
           isOpen={isMobileMenuOpen}

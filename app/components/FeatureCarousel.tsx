@@ -60,12 +60,12 @@ const data = [
     content: (
       <FeatureContent
         headline="Stop hunting for the good moments."
-        description="Lagoon's AI-powered motion detection scans your entire video and pinpoints every moment of interesting activity automatically. What used to take hours now takes minutes."
+        description="Lagoon's AI-powered motion detection scans your entire video and pinpoints every moment of interesting activity automatically."
         bullets={[
           "Analyzes pixel changes between frames to find motion",
           "Toggle between Fast, Balanced, and Accurate modes",
           "Fine-tune the detection threshold to your needs",
-          "Process videos up to 6+ hours long",
+          "Handles videos of any length",
         ]}
       />
     ),
@@ -128,11 +128,11 @@ const data = [
     content: (
       <FeatureContent
         headline="Hardware-accelerated. Purpose-built."
-        description="Lagoon is a native macOS app optimized from the ground up for Apple Silicon. Process a 6-hour video in minutes, not hours."
+        description="Lagoon is a native macOS app optimized from the ground up for Apple Silicon. Fast, efficient processing that stays out of your way."
         bullets={[
-          "Native Apple Silicon optimization (M1\u2013M4)",
+          "Native Apple Silicon optimization (M1–M4)",
           "Hardware-accelerated video decoding",
-          "Typically 1\u20132 minutes per hour of footage",
+          "Lightning-fast analysis",
           "Runs in the background while you work",
         ]}
       />
@@ -179,9 +179,9 @@ export default function FeatureCarousel() {
             get straight to the moments that matter.
           </span>{" "}
           With automatic motion detection, visual timelines, and instant
-          exports, Lagoon lets you process hours of footage in minutes
+          exports, Lagoon makes it effortless to find the moments that count
           &mdash; all without leaving your Mac. Whether it&apos;s a quick
-          highlight reel or a full content review, your footage is always in
+          highlight reel or a full content review, your videos are always in
           good hands.
         </p>
       </div>
