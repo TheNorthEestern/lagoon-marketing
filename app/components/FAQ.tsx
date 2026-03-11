@@ -21,7 +21,7 @@ const faqs = [
   {
     question: "How long does analysis take?",
     answer:
-      "Typically 1\u20132 minutes per hour of video on Apple Silicon. Depends on video quality and your Mac\u2019s specs.",
+      "Analysis is fast thanks to hardware-accelerated decoding on Apple Silicon. Exact times vary with video length and resolution.",
   },
   {
     question: "Can I adjust sensitivity?",
@@ -36,12 +36,12 @@ const faqs = [
   {
     question: "Can I export individual clips or full compilations?",
     answer:
-      "Both. Export each detected segment separately, or compile them into a single video with custom transitions.",
+      "Yes. Export each detected segment individually, or select multiple segments to export at once.",
   },
   {
     question: "What macOS versions are supported?",
     answer:
-      "macOS 14 and later. Optimized for Apple Silicon (M1, M2, M3, M4).",
+      "macOS 14 and later. Requires Apple Silicon.",
   },
   {
     question: "Is there a free trial?",

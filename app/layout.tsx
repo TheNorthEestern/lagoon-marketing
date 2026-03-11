@@ -22,12 +22,37 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_US",
     siteName: "Lagoon Studio",
+    images: [
+      {
+        url: "https://lagoon.video/images/og.png",
+        width: 1200,
+        height: 630,
+        alt: "Lagoon Studio",
+      },
+    ],
+    videos: [
+      {
+        url: "https://lagoon.video/videos/hero-demo.mp4",
+        type: "video/mp4",
+        width: 2032,
+        height: 1192,
+      },
+    ],
   },
   twitter: {
-    card: "summary_large_image",
+    card: "player",
     title: "Lagoon Studio - Stop scrubbing. Instantly find the action.",
     description:
       "Automatically detect interesting motion in your videos. Coming soon for macOS.",
+    images: ["https://lagoon.video/images/og.png"],
+    players: [
+      {
+        playerUrl: "https://lagoon.video/videos/hero-demo.mp4",
+        streamUrl: "https://lagoon.video/videos/hero-demo.mp4",
+        width: 2032,
+        height: 1192,
+      },
+    ],
   },
 };
 

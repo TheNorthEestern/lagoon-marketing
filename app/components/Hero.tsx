@@ -10,6 +10,7 @@ const VIDEO_SOURCES = [
   "/videos/hero-demo.mp4",
   "/videos/hero-demo-2.mp4",
   "/videos/hero-demo-3.mp4",
+  "/videos/hero-demo-4.mp4",
 ];
 
 const INTRO_SEEN_KEY = "lagoon-intro-seen";
