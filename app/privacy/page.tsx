@@ -11,7 +11,7 @@ export default function PrivacyPolicy() {
         </h1>
         <p className="mt-2 text-lg text-text-secondary">Lagoon Studio</p>
         <p className="mt-1 text-sm text-text-secondary">
-          Effective Date: February 13, 2026
+          Effective Date: March 11, 2026
         </p>
 
         <div className="mt-12 space-y-8 text-base leading-relaxed text-neutral-300">
@@ -27,14 +27,43 @@ export default function PrivacyPolicy() {
               1. Information We Collect
             </h2>
             <p className="mt-3">
-              <strong>We collect minimal information.</strong> The Software does
-              not include analytics, telemetry, crash reporting, or tracking of
-              any kind.
+              <strong>We collect minimal information.</strong> The Software
+              collects anonymous, aggregated usage signals to help us understand
+              how the app is used and improve it over time. No personal
+              information, file contents, or identifying data is ever collected
+              or transmitted.
             </p>
             <p className="mt-3">
-              The only network requests the Software makes are:
+              The network requests the Software makes are:
             </p>
             <ul className="mt-3 list-disc space-y-2 pl-6">
+              <li>
+                <strong>Anonymous usage analytics.</strong> The Software uses{" "}
+                <a
+                  href="https://telemetrydeck.com"
+                  className="text-accent underline underline-offset-2 hover:text-accent-hover"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  TelemetryDeck
+                </a>{" "}
+                to collect anonymous, aggregated usage signals (e.g., feature
+                usage counts, analysis duration). TelemetryDeck is a
+                privacy-first analytics provider that does not use cookies, does
+                not track users across apps, and does not collect IP addresses
+                or personal identifiers. All signals are anonymized before
+                transmission. You can learn more about their privacy practices
+                at{" "}
+                <a
+                  href="https://telemetrydeck.com/privacy"
+                  className="text-accent underline underline-offset-2 hover:text-accent-hover"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  telemetrydeck.com/privacy
+                </a>
+                .
+              </li>
               <li>
                 <strong>License key validation.</strong> When you activate or
                 periodically validate a license key, the Software sends your
@@ -66,13 +95,12 @@ export default function PrivacyPolicy() {
                 Your name, email address, or contact information (this is
                 handled solely by Lemon Squeezy during purchase)
               </li>
-              <li>Usage data, analytics, or telemetry</li>
-              <li>Crash reports or diagnostics</li>
               <li>
                 File contents, project data, or media you work with in the
                 Software
               </li>
               <li>Location data</li>
+              <li>IP addresses or personal identifiers</li>
               <li>
                 Device identifiers beyond the Lemon Squeezy instance ID used for
                 license activation
@@ -97,6 +125,21 @@ export default function PrivacyPolicy() {
                 rel="noopener noreferrer"
               >
                 https://www.lemonsqueezy.com/privacy
+              </a>
+              .
+            </p>
+            <p className="mt-3">
+              <strong>TelemetryDeck</strong> receives anonymous, aggregated
+              usage signals from the Software. TelemetryDeck does not collect
+              personal data, IP addresses, or device identifiers. Their privacy
+              policy is available at{" "}
+              <a
+                href="https://telemetrydeck.com/privacy"
+                className="text-accent underline underline-offset-2 hover:text-accent-hover"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                telemetrydeck.com/privacy
               </a>
               .
             </p>

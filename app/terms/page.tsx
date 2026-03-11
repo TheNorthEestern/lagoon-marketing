@@ -11,7 +11,7 @@ export default function TermsOfService() {
         </h1>
         <p className="mt-2 text-lg text-text-secondary">Lagoon Studio</p>
         <p className="mt-1 text-sm text-text-secondary">
-          Effective Date: February 13, 2026
+          Effective Date: March 11, 2026
         </p>
 
         <div className="mt-12 space-y-8 text-base leading-relaxed text-neutral-300">
@@ -102,7 +102,27 @@ export default function TermsOfService() {
 
           <section>
             <h2 className="text-xl font-bold text-foreground">
-              6. Restrictions
+              6. Analytics
+            </h2>
+            <p className="mt-3">
+              The Software collects anonymous, aggregated usage data through
+              TelemetryDeck to help us understand how features are used and
+              improve the Software. This data does not include personal
+              information, file contents, or anything that could identify you.
+              For details on what is collected, please see our{" "}
+              <a
+                href="/privacy"
+                className="text-accent underline underline-offset-2 hover:text-accent-hover"
+              >
+                Privacy Policy
+              </a>
+              .
+            </p>
+          </section>
+
+          <section>
+            <h2 className="text-xl font-bold text-foreground">
+              7. Restrictions
             </h2>
             <p className="mt-3">You may not:</p>
             <ul className="mt-3 list-disc space-y-2 pl-6">
@@ -127,7 +147,7 @@ export default function TermsOfService() {
 
           <section>
             <h2 className="text-xl font-bold text-foreground">
-              7. Intellectual Property
+              8. Intellectual Property
             </h2>
             <p className="mt-3">
               The Software and all associated intellectual property rights are
@@ -138,7 +158,7 @@ export default function TermsOfService() {
 
           <section>
             <h2 className="text-xl font-bold text-foreground">
-              8. Disclaimer of Warranties
+              9. Disclaimer of Warranties
             </h2>
             <p className="mt-3 uppercase">
               The Software is provided &ldquo;as is&rdquo; and &ldquo;as
@@ -152,7 +172,7 @@ export default function TermsOfService() {
 
           <section>
             <h2 className="text-xl font-bold text-foreground">
-              9. Limitation of Liability
+              10. Limitation of Liability
             </h2>
             <p className="mt-3 uppercase">
               To the maximum extent permitted by applicable law, in no event
@@ -168,19 +188,19 @@ export default function TermsOfService() {
 
           <section>
             <h2 className="text-xl font-bold text-foreground">
-              10. Termination
+              11. Termination
             </h2>
             <p className="mt-3">
               We may terminate or suspend your license at any time if you
               violate these Terms. Upon termination, you must cease all use of
               the Software and destroy any copies in your possession. Sections
-              7, 8, 9, and 11 survive termination.
+              8, 9, 10, and 12 survive termination.
             </p>
           </section>
 
           <section>
             <h2 className="text-xl font-bold text-foreground">
-              11. Governing Law
+              12. Governing Law
             </h2>
             <p className="mt-3">
               These Terms are governed by and construed in accordance with the
@@ -192,7 +212,7 @@ export default function TermsOfService() {
 
           <section>
             <h2 className="text-xl font-bold text-foreground">
-              12. Changes to These Terms
+              13. Changes to These Terms
             </h2>
             <p className="mt-3">
               We may update these Terms from time to time. We will notify you of
@@ -203,7 +223,7 @@ export default function TermsOfService() {
           </section>
 
           <section>
-            <h2 className="text-xl font-bold text-foreground">10. Contact</h2>
+            <h2 className="text-xl font-bold text-foreground">14. Contact</h2>
             <p className="mt-3">
               If you have questions about these Terms, please contact us at:
             </p>
