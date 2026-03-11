@@ -44,11 +44,25 @@ const slides: FeatureSlide[] = [
 ];
 
 export default function FeatureCarousel() {
+  const sectionRef = useRef<HTMLElement>(null);
   const scrollRef = useRef<HTMLDivElement>(null);
   const [activeIndex, setActiveIndex] = useState(0);
+  const [isInView, setIsInView] = useState(false);
   const [isAutoPlaying, setIsAutoPlaying] = useState(true);
   const [autoPlayResetKey, setAutoPlayResetKey] = useState(0);
   const autoPlayRef = useRef<ReturnType<typeof setInterval>>(null);
+
+  // Start autoplay only when section is in view
+  useEffect(() => {
+    const el = sectionRef.current;
+    if (!el) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => setIsInView(entry.isIntersecting),
+      { threshold: 0.3 }
+    );
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
 
   const scrollToIndex = useCallback((index: number) => {
     const container = scrollRef.current;
@@ -90,9 +104,9 @@ export default function FeatureCarousel() {
     setAutoPlayResetKey((k) => k + 1);
   }, []);
 
-  // Auto-play with reset support
+  // Auto-play with reset support, only when in view
   useEffect(() => {
-    if (!isAutoPlaying) return;
+    if (!isAutoPlaying || !isInView) return;
     autoPlayRef.current = setInterval(() => {
       setActiveIndex((prev) => {
         const next = (prev + 1) % slides.length;
@@ -103,7 +117,7 @@ export default function FeatureCarousel() {
     return () => {
       if (autoPlayRef.current) clearInterval(autoPlayRef.current);
     };
-  }, [isAutoPlaying, scrollToIndex, autoPlayResetKey]);
+  }, [isAutoPlaying, isInView, scrollToIndex, autoPlayResetKey]);
 
   // Reset timer on manual scroll/touch
   const handleUserScroll = useCallback(() => {
@@ -111,7 +125,7 @@ export default function FeatureCarousel() {
   }, [isAutoPlaying, resetAutoPlay]);
 
   return (
-    <section className="w-full py-20">
+    <section ref={sectionRef} className="w-full py-20">
       <div className="mx-auto max-w-7xl px-4 pb-12 text-center">
         <h2 className="font-satoshi text-3xl font-bold text-neutral-200 md:text-6xl">
           Let Lagoon do the scrubbing.
@@ -123,7 +137,7 @@ export default function FeatureCarousel() {
         ref={scrollRef}
         onTouchStart={handleUserScroll}
         onMouseDown={handleUserScroll}
-        className="flex snap-x snap-mandatory gap-5 overflow-x-auto px-[max(1rem,calc((100vw-1200px)/2))] pb-4 [scrollbar-width:none]"
+        className="flex snap-x snap-mandatory gap-5 overflow-x-auto px-[calc((100vw-min(85vw,1000px))/2)] pb-4 [scrollbar-width:none]"
       >
         {slides.map((slide, i) => (
           <div
