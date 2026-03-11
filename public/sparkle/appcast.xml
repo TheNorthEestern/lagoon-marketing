@@ -19,5 +19,17 @@
         - enclosure type         Always application/octet-stream for DMG
     -->
 
-  </channel>
+          <item>
+      <title>Version 1.0.1</title>
+      <pubDate>Wed, 11 Mar 2026 03:11:55 +0000</pubDate>
+      <sparkle:version>1.0.1</sparkle:version>
+      <sparkle:shortVersionString>1.0.1</sparkle:shortVersionString>
+      <enclosure
+          url="https://github.com/TheNorthEestern/lagoon-releases/releases/download/v1.0.1/Lagoon-Studio.dmg"
+          length="42812587"
+          type="application/octet-stream"
+          sparkle:edSignature="+u2m5LLCvzKDGG65Hgj67gxm/0VaWyk8Nu4XIjl4KnfAw1/liqU44693uzS2iHz34pcDNVqdc8OP0NqLRNfRDg=="
+      />
+  </item>
+    </channel>
 </rss>
