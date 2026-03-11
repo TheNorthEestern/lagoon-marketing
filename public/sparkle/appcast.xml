@@ -31,5 +31,17 @@
           sparkle:edSignature="+u2m5LLCvzKDGG65Hgj67gxm/0VaWyk8Nu4XIjl4KnfAw1/liqU44693uzS2iHz34pcDNVqdc8OP0NqLRNfRDg=="
       />
   </item>
+            <item>
+      <title>Version 1.0.2</title>
+      <pubDate>Wed, 11 Mar 2026 04:51:08 +0000</pubDate>
+      <sparkle:version>1.0.2</sparkle:version>
+      <sparkle:shortVersionString>1.0.2</sparkle:shortVersionString>
+      <enclosure
+          url="https://github.com/TheNorthEestern/lagoon-releases/releases/download/v1.0.2/Lagoon-Studio.dmg"
+          length="42880378"
+          type="application/octet-stream"
+          sparkle:edSignature="A05rzXfusQ0VOh6BH9ZMHiSwPn1J5hZ5HLAOKvnWhSq8n4/14SaaTMWd1bN7RORWW7cSOpoaCEUZ85bfMFa8DQ=="
+      />
+  </item>
     </channel>
 </rss>
