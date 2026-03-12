@@ -14,7 +14,6 @@ import {
 
 const navItems = [
   { name: "Features", link: "#features" },
-  { name: "How It Works", link: "#how-it-works" },
   { name: "FAQ", link: "#faq" },
   { name: "Pricing", link: "#pricing" },
 ];
@@ -25,6 +24,15 @@ interface NavigationProps {
 
 export default function Navigation({ onReplayIntro }: NavigationProps) {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
+  const handleReplay = () => {
+    if (onReplayIntro) {
+      onReplayIntro();
+    } else {
+      localStorage.removeItem("lagoon-intro-seen");
+      window.location.href = "/";
+    }
+  };
   return (
     <Navbar>
       {/* Desktop */}
@@ -44,7 +52,7 @@ export default function Navigation({ onReplayIntro }: NavigationProps) {
         </a>
         <NavItems items={navItems} />
         <button
-          onClick={onReplayIntro}
+          onClick={handleReplay}
           className="relative z-20 flex items-center gap-1.5 rounded-full border border-neutral-700 bg-neutral-900/80 px-3 py-1.5 text-sm text-neutral-400 backdrop-blur-sm transition-colors hover:border-neutral-500 hover:text-white"
         >
           <IconRefresh size={16} />
@@ -70,7 +78,7 @@ export default function Navigation({ onReplayIntro }: NavigationProps) {
           </a>
           <div className="flex items-center gap-2">
             <button
-              onClick={onReplayIntro}
+              onClick={handleReplay}
               className="flex items-center justify-center rounded-full border border-neutral-700 bg-neutral-900/80 p-1.5 text-neutral-400 transition-colors hover:border-neutral-500 hover:text-white"
             >
               <IconRefresh size={16} />

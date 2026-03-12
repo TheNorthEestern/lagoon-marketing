@@ -6,6 +6,7 @@ import Navigation from "./Navigation";
 import Hero from "./Hero";
 import FeatureCarousel from "./FeatureCarousel";
 import FAQ from "./FAQ";
+import Pricing from "./Pricing";
 import Footer from "./Footer";
 
 const DOWNLOAD_URL =
@@ -58,9 +59,9 @@ export default function PageContent() {
         <section id="faq">
           <FAQ />
         </section>
-        {/* <section id="pricing">
+        <section id="pricing">
           <Pricing />
-        </section> */}
+        </section>
         <section id="download" className="px-6 py-24 sm:py-32">
           <div className="mx-auto max-w-2xl text-center">
             <h2 className="text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl">
