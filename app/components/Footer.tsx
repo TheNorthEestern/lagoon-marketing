@@ -1,3 +1,5 @@
+"use client";
+
 const navigation = [
   { name: "Features", href: "#features" },
   { name: "FAQ", href: "#faq" },
