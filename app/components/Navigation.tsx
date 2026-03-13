@@ -16,6 +16,7 @@ const navItems = [
   { name: "Features", link: "#features" },
   { name: "FAQ", link: "#faq" },
   { name: "Pricing", link: "#pricing" },
+  { name: "Changelog", link: "/changelog" },
 ];
 
 interface NavigationProps {
