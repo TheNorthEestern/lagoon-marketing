@@ -219,9 +219,9 @@ export default function Hero({ onIntroComplete, onIntroStart, replayCount = 0 }:
   // First render: plain div for measurement, invisible until useLayoutEffect fires
   if (!measured) {
     return (
-      <section className="relative flex min-h-screen flex-col items-center justify-center overflow-hidden px-4 py-20 sm:px-6">
-        <div ref={videoContainerRef} className="w-full max-w-[1200px]">
-          <div className="aspect-video w-full relative">
+      <section className="relative flex min-h-[100svh] flex-col items-center justify-center overflow-hidden px-4 py-10 sm:px-6 sm:py-14">
+        <div ref={videoContainerRef} className="w-full max-w-[1200px] max-h-[50vh]">
+          <div className="aspect-video w-full max-h-[50vh] relative">
             <video
               ref={slotARef}
               className="absolute inset-0 h-full w-full object-contain"
@@ -240,24 +240,25 @@ export default function Hero({ onIntroComplete, onIntroStart, replayCount = 0 }:
           </div>
         </div>
         <div className="mx-auto mt-2 max-w-4xl text-center sm:mt-3 opacity-0">
-          <h1 className="font-satoshi text-5xl font-bold leading-[1.3] tracking-tight sm:text-6xl lg:text-7xl">
+          <h1 className="font-satoshi text-4xl font-bold leading-[1.3] tracking-tight sm:text-5xl lg:text-6xl">
             Stop scrubbing.
             <br />
             Instantly find the action.
           </h1>
-          <p className="font-satoshi mx-auto mt-8 max-w-2xl text-lg text-text-secondary sm:mt-10 sm:text-xl">
+          <p className="font-satoshi mx-auto mt-5 max-w-2xl text-lg text-text-secondary sm:mt-6 sm:text-xl">
             Automatically detect interesting motion in your videos.
             Filter out the noise, visualize the activity, and export your clips in
             seconds. Native. Private. Optimized for Apple Silicon.
           </p>
           <a
             href={DOWNLOAD_URL}
-            className="mt-8 inline-block rounded-full bg-accent px-6 py-3 text-sm font-bold text-white transition-colors hover:bg-accent-hover sm:mt-10 sm:px-8 sm:py-3.5 sm:text-base"
+            className="mt-5 inline-flex flex-col items-center rounded-full bg-accent px-8 py-3.5 transition-colors hover:bg-accent-hover sm:mt-5"
           >
-            Download for macOS
+            <span className="text-base font-bold text-white sm:text-lg">Download for macOS</span>
+            <span className="text-sm text-white/70">Free 7-day trial</span>
           </a>
-          <p className="mt-3 text-xs text-text-secondary">
-            Free 7-day trial &middot; macOS 14+ &middot; Apple Silicon optimized
+          <p className="mt-4 text-sm text-text-secondary">
+            $8.99/mo, $75/yr, or $59 once &middot; macOS 14+ &middot; Apple Silicon
           </p>
         </div>
       </section>
@@ -265,10 +266,10 @@ export default function Hero({ onIntroComplete, onIntroStart, replayCount = 0 }:
   }
 
   return (
-    <section className="relative flex min-h-screen flex-col items-center justify-center overflow-hidden px-4 py-20 sm:px-6">
+    <section className="relative flex min-h-[100svh] flex-col items-center justify-center overflow-hidden px-4 py-10 sm:px-6 sm:py-14">
       {/* Hero video */}
       <motion.div
-        className="w-full max-w-[1200px]"
+        className="w-full max-w-[1200px] max-h-[50vh]"
         initial={autoplayBlocked ? { opacity: 1, scale: 1, y: 0, marginTop: 4 } : { opacity: 0, scale: introScale, y: introCenterY, marginTop: 0 }}
         animate={
           showIntro
@@ -282,7 +283,7 @@ export default function Hero({ onIntroComplete, onIntroStart, replayCount = 0 }:
           marginTop: { duration: 1.2, ease: [0.25, 0.1, 0.25, 1] },
         }}
       >
-        <div className="aspect-video w-full relative">
+        <div className="aspect-video w-full max-h-[50vh] relative">
           <video
             ref={slotARef}
             className="absolute inset-0 h-full w-full object-contain transition-opacity duration-1000"
@@ -325,24 +326,25 @@ export default function Hero({ onIntroComplete, onIntroStart, replayCount = 0 }:
         animate={showIntro ? { opacity: 0, y: 20 } : { opacity: 1, y: 0 }}
         transition={autoplayBlocked ? { duration: 0 } : { duration: 0.8, delay: 0.3, ease: "easeOut" }}
       >
-        <h1 className="font-satoshi text-5xl font-bold leading-[1.3] tracking-tight sm:text-6xl lg:text-7xl">
+        <h1 className="font-satoshi text-4xl font-bold leading-[1.3] tracking-tight sm:text-5xl lg:text-6xl">
           Stop scrubbing.
           <br />
           Instantly find the action.
         </h1>
-        <p className="font-satoshi mx-auto mt-8 max-w-2xl text-lg text-text-secondary sm:mt-10 sm:text-xl">
+        <p className="font-satoshi mx-auto mt-5 max-w-2xl text-lg text-text-secondary sm:mt-6 sm:text-xl">
           Automatically detect interesting motion in your videos.
           Filter out the noise, visualize the activity, and export your clips in
           seconds. Native. Private. Optimized for Apple Silicon.
         </p>
         <a
           href={DOWNLOAD_URL}
-          className="mt-8 inline-block rounded-full bg-accent px-6 py-3 text-sm font-bold text-white transition-colors hover:bg-accent-hover sm:mt-10 sm:px-8 sm:py-3.5 sm:text-base"
+          className="mt-5 inline-flex flex-col items-center rounded-full bg-accent px-8 py-3.5 transition-colors hover:bg-accent-hover sm:mt-5"
         >
-          Download for macOS
+          <span className="text-base font-bold text-white sm:text-lg">Download for macOS</span>
+          <span className="text-sm text-white/70">Free 7-day trial</span>
         </a>
-        <p className="mt-3 text-xs text-text-secondary">
-          Free 7-day trial &middot; macOS 14+ &middot; Apple Silicon optimized
+        <p className="mt-4 text-sm text-text-secondary">
+          $8.99/mo, $75/yr, or $59 once &middot; macOS 14+ &middot; Apple Silicon
         </p>
       </motion.div>
     </section>
