@@ -7,6 +7,17 @@ export const metadata: Metadata = {
   description:
     "Privacy policy for Lagoon Studio. Learn how we handle your data, what we collect, and how we protect your privacy.",
   alternates: { canonical: "/privacy" },
+  openGraph: {
+    title: "Privacy Policy - Lagoon Studio",
+    description:
+      "Privacy policy for Lagoon Studio. Learn how we handle your data, what we collect, and how we protect your privacy.",
+    url: "https://lagoon.video/privacy",
+  },
+  twitter: {
+    title: "Privacy Policy - Lagoon Studio",
+    description:
+      "Privacy policy for Lagoon Studio. Learn how we handle your data, what we collect, and how we protect your privacy.",
+  },
 };
 
 export default function PrivacyPolicy() {

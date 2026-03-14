@@ -7,6 +7,17 @@ export const metadata: Metadata = {
   description:
     "Terms of service for Lagoon Studio. License terms, usage restrictions, and legal information.",
   alternates: { canonical: "/terms" },
+  openGraph: {
+    title: "Terms of Service - Lagoon Studio",
+    description:
+      "Terms of service for Lagoon Studio. License terms, usage restrictions, and legal information.",
+    url: "https://lagoon.video/terms",
+  },
+  twitter: {
+    title: "Terms of Service - Lagoon Studio",
+    description:
+      "Terms of service for Lagoon Studio. License terms, usage restrictions, and legal information.",
+  },
 };
 
 export default function TermsOfService() {

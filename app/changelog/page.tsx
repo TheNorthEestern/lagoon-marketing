@@ -7,6 +7,17 @@ export const metadata: Metadata = {
   description:
     "See what's new in Lagoon Studio. Release notes, new features, and improvements.",
   alternates: { canonical: "/changelog" },
+  openGraph: {
+    title: "Changelog - Lagoon Studio",
+    description:
+      "See what's new in Lagoon Studio. Release notes, new features, and improvements.",
+    url: "https://lagoon.video/changelog",
+  },
+  twitter: {
+    title: "Changelog - Lagoon Studio",
+    description:
+      "See what's new in Lagoon Studio. Release notes, new features, and improvements.",
+  },
 };
 
 interface GitHubRelease {
