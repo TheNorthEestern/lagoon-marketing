@@ -1,5 +1,13 @@
+import type { Metadata } from "next";
 import Navigation from "../components/Navigation";
 import Footer from "../components/Footer";
+
+export const metadata: Metadata = {
+  title: "Privacy Policy - Lagoon Studio",
+  description:
+    "Privacy policy for Lagoon Studio. Learn how we handle your data, what we collect, and how we protect your privacy.",
+  alternates: { canonical: "/privacy" },
+};
 
 export default function PrivacyPolicy() {
   return (

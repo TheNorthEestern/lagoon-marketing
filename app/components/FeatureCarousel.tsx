@@ -13,33 +13,33 @@ interface FeatureSlide {
 const slides: FeatureSlide[] = [
   {
     headline: "Automatic motion detection that finds\nevery moment worth keeping.",
-    description: "",
+    description: "Drop in any video and Lagoon scans every frame for meaningful movement. Adjust sensitivity to catch subtle gestures or only major action.",
     image: "/images/features/detection.png",
-    imageAlt: "Motion detection interface",
+    imageAlt: "Lagoon Studio motion detection interface showing detected segments in a video timeline",
   },
   {
     headline: "A visual timeline that shows you\nexactly where the action is.",
-    description: "",
+    description: "See all detected motion segments laid out on a timeline. Click any segment to preview it instantly, sort by time, intensity, or duration.",
     image: "/images/features/timeline.png",
-    imageAlt: "Timeline visualization",
+    imageAlt: "Lagoon Studio timeline visualization with color-coded motion intensity segments",
   },
   {
     headline: "Export individual clips or full\ncompilations in seconds.",
-    description: "",
+    description: "Select one or multiple segments and export them as standard MP4 files. Add configurable padding around each clip to capture the full context.",
     image: "/images/features/export.png",
-    imageAlt: "Export interface",
+    imageAlt: "Lagoon Studio export interface showing segment selection and MP4 export options",
   },
   {
     headline: "100% local. Hardware-accelerated.\nOptimized for Apple Silicon from the ground up.",
-    description: "",
+    description: "Your videos never leave your Mac. Lagoon uses Apple Silicon hardware decoding for fast analysis with minimal CPU impact. No cloud, no uploads, no waiting.",
     image: "/images/features/performance.png",
-    imageAlt: "Local processing on Apple Silicon",
+    imageAlt: "Lagoon Studio running locally on Apple Silicon with hardware-accelerated video processing",
   },
   {
     headline: "From rough cuts to highlight reels.\nFits right into your editing workflow.",
-    description: "",
+    description: "Export clips directly into your editing timeline. Lagoon works alongside Final Cut Pro, DaVinci Resolve, or any editor that accepts MP4 files.",
     image: "/images/features/workflow.png",
-    imageAlt: "Video editing workflow",
+    imageAlt: "Lagoon Studio workflow showing exported clips ready for use in a video editor",
   },
 ];
 
@@ -146,9 +146,16 @@ export default function FeatureCarousel() {
             className="w-[85vw] max-w-[1000px] shrink-0 snap-center"
           >
             <div className="flex h-[500px] flex-col justify-between overflow-hidden rounded-2xl bg-neutral-900 p-8 md:h-[600px] md:p-12">
-              <p className="max-w-lg whitespace-pre-line text-xl font-medium leading-snug text-neutral-200 md:text-2xl">
-                {slide.headline}
-              </p>
+              <div className="max-w-lg">
+                <p className="whitespace-pre-line text-xl font-medium leading-snug text-neutral-200 md:text-2xl">
+                  {slide.headline}
+                </p>
+                {slide.description && (
+                  <p className="mt-3 text-sm leading-relaxed text-neutral-400 md:text-base">
+                    {slide.description}
+                  </p>
+                )}
+              </div>
               <div className="flex flex-1 items-center justify-center pt-8">
                 <img
                   src={slide.image}

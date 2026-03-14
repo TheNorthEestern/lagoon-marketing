@@ -13,9 +13,9 @@ import {
 } from "@/components/ui/resizable-navbar";
 
 const navItems = [
-  { name: "Features", link: "#features" },
-  { name: "FAQ", link: "#faq" },
-  { name: "Pricing", link: "#pricing" },
+  { name: "Features", link: "/#features" },
+  { name: "FAQ", link: "/#faq" },
+  { name: "Pricing", link: "/#pricing" },
   { name: "Changelog", link: "/changelog" },
 ];
 
@@ -39,12 +39,14 @@ export default function Navigation({ onReplayIntro }: NavigationProps) {
       {/* Desktop */}
       <NavBody>
         <a
-          href="#"
+          href="/"
           className="relative z-20 flex items-center gap-2.5 px-2 py-1"
         >
           <img
             src="/images/lagoon_nav.jpg"
             alt="Lagoon Studio"
+            width={32}
+            height={32}
             className="app-icon h-8 w-8"
           />
           <span className="font-satoshi text-lg font-bold text-white">
@@ -65,7 +67,7 @@ export default function Navigation({ onReplayIntro }: NavigationProps) {
       <MobileNav>
         <MobileNavHeader>
           <a
-            href="#"
+            href="/"
             className="relative z-20 flex items-center gap-2.5 px-2 py-1"
           >
             <img

@@ -1,5 +1,13 @@
+import type { Metadata } from "next";
 import Navigation from "../components/Navigation";
 import Footer from "../components/Footer";
+
+export const metadata: Metadata = {
+  title: "Changelog - Lagoon Studio",
+  description:
+    "See what's new in Lagoon Studio. Release notes, new features, and improvements.",
+  alternates: { canonical: "/changelog" },
+};
 
 interface GitHubRelease {
   tag_name: string;

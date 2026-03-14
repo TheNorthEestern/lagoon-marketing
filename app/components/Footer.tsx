@@ -1,9 +1,9 @@
 "use client";
 
 const navigation = [
-  { name: "Features", href: "#features" },
-  { name: "FAQ", href: "#faq" },
-  { name: "Pricing", href: "#pricing" },
+  { name: "Features", href: "/#features" },
+  { name: "FAQ", href: "/#faq" },
+  { name: "Pricing", href: "/#pricing" },
   { name: "Changelog", href: "/changelog" },
   { name: "Privacy Policy", href: "/privacy" },
   { name: "Terms of Service", href: "/terms" },
@@ -16,16 +16,20 @@ export default function Footer() {
         <div className="flex flex-col items-center gap-8 sm:flex-row sm:justify-between">
           {/* Logo */}
           <a
-            href="#"
+            href="/"
             onClick={(e) => {
-              e.preventDefault();
-              window.scrollTo({ top: 0, behavior: "smooth" });
+              if (window.location.pathname === "/") {
+                e.preventDefault();
+                window.scrollTo({ top: 0, behavior: "smooth" });
+              }
             }}
             className="flex items-center gap-2.5"
           >
             <img
               src="/images/lagoon_nav.jpg"
               alt="Lagoon Studio"
+              width={32}
+              height={32}
               className="app-icon h-8 w-8"
             />
             <span className="font-satoshi text-lg font-bold text-white">

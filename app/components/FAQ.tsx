@@ -6,52 +6,52 @@ const faqs = [
   {
     question: "What video formats does Lagoon support?",
     answer:
-      "H.264, HEVC, AV1, and most common video formats. See documentation for the full list.",
+      "Lagoon supports H.264, HEVC, AV1, and most common video container formats including MP4, MKV, and WebM. It uses hardware-accelerated decoding on Apple Silicon, so even high-resolution footage processes efficiently.",
   },
   {
     question: "How does motion detection work?",
     answer:
-      "Lagoon analyzes pixel changes between frames to identify interesting moments. You can adjust sensitivity in settings.",
+      "Lagoon analyzes pixel changes between frames to identify moments with significant movement. You can choose between Fast, Balanced, and Accurate analysis modes depending on your needs, and fine-tune the motion detection threshold to filter out unwanted noise like camera shake or subtle lighting changes.",
   },
   {
     question: "Does Lagoon work offline?",
     answer:
-      "Yes, completely. All processing happens on your Mac. No internet required.",
+      "Yes, completely. All video analysis and processing happens locally on your Mac. Your files never leave your device and no internet connection is required. The only network requests Lagoon makes are for license validation and checking for app updates.",
   },
   {
     question: "How long does analysis take?",
     answer:
-      "Analysis is fast thanks to hardware-accelerated decoding on Apple Silicon. Exact times vary with video length and resolution.",
+      "Analysis is fast thanks to hardware-accelerated decoding on Apple Silicon. Exact times vary with video length, resolution, and your chosen analysis mode. Fast mode prioritizes speed, while Accurate mode examines more frames for thorough results.",
   },
   {
     question: "Can I adjust sensitivity?",
     answer:
-      "Yes. Toggle between Fast, Balanced, and Accurate modes. Fine-tune the motion detection threshold to your needs.",
+      "Yes. Toggle between Fast, Balanced, and Accurate analysis modes, and fine-tune the motion detection threshold slider to match your content. Lower thresholds catch subtle movement, while higher thresholds focus on significant action.",
   },
   {
     question: "What if I have a large file?",
     answer:
-      "Lagoon handles large files with ease. Processing time scales linearly with video length.",
+      "Lagoon handles large files with ease. Processing time scales linearly with video length, and Apple Silicon hardware acceleration keeps things moving. You can continue using your Mac normally while analysis runs in the background.",
   },
   {
     question: "Can I export individual clips or full compilations?",
     answer:
-      "Yes. Export each detected segment individually, or select multiple segments to export at once.",
+      "Yes. Export each detected segment individually, or select multiple segments to export at once. Exported clips are saved as standard MP4 files that work with any video editor or media player.",
   },
   {
     question: "What macOS versions are supported?",
     answer:
-      "macOS 14 and later. Requires Apple Silicon.",
+      "Lagoon requires macOS 14 (Sonoma) or later and an Apple Silicon Mac (M1 or newer). It is built as a native SwiftUI application optimized specifically for Apple Silicon hardware.",
   },
   {
     question: "Is there a free trial?",
     answer:
-      "Yes. Try Lagoon free for 7 days before committing. No credit card required.",
+      "Yes. Try Lagoon free for 7 days with full functionality. No credit card required to start your trial. After the trial, choose from monthly ($8.99/mo), yearly ($75/yr), or lifetime ($59) plans.",
   },
   {
     question: "Can I cancel my subscription anytime?",
     answer:
-      "Yes. Cancel anytime with no penalties. Lifetime purchase holders never need to worry.",
+      "Yes. Cancel your monthly or yearly subscription anytime with no penalties or hidden fees. If you choose the lifetime option, it is a one-time purchase with no recurring charges.",
   },
 ];
 

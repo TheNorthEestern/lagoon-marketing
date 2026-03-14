@@ -1,5 +1,13 @@
+import type { Metadata } from "next";
 import Navigation from "../components/Navigation";
 import Footer from "../components/Footer";
+
+export const metadata: Metadata = {
+  title: "Terms of Service - Lagoon Studio",
+  description:
+    "Terms of service for Lagoon Studio. License terms, usage restrictions, and legal information.",
+  alternates: { canonical: "/terms" },
+};
 
 export default function TermsOfService() {
   return (

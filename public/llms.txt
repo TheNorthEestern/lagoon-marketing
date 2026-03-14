@@ -1,0 +1,17 @@
+# Lagoon Studio
+
+> Lagoon Studio is a native macOS application that automatically detects motion in video files. It analyzes pixel changes between frames to identify interesting moments, visualizes activity on a timeline, and exports clips. All processing runs locally on Apple Silicon with hardware acceleration. No internet connection or cloud upload required.
+
+## Key Facts
+- Platform: macOS 14+ (Apple Silicon required)
+- Pricing: Free 7-day trial, then $8.99/mo, $75/yr, or $59 lifetime
+- Supported formats: H.264, HEVC, AV1, and most common video formats
+- Privacy: 100% local processing, no data leaves the device
+- Developer: Tomare LLC
+
+## Links
+- Homepage: https://lagoon.video
+- Download: https://github.com/TheNorthEestern/lagoon-releases/releases/latest/download/Lagoon-Studio.dmg
+- Changelog: https://lagoon.video/changelog
+- Privacy Policy: https://lagoon.video/privacy
+- Terms of Service: https://lagoon.video/terms
