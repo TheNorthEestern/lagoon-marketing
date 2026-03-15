@@ -215,6 +215,20 @@ export default function RootLayout({
   return (
     <html lang="en" className="dark">
       <head>
+        <script
+          async
+          src="https://www.googletagmanager.com/gtag/js?id=G-DFFTPVWR4Z"
+        />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'G-DFFTPVWR4Z');
+            `,
+          }}
+        />
         <link
           rel="preload"
           href="/fonts/Satoshi-Bold.woff2"
