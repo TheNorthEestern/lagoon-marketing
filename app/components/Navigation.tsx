@@ -73,6 +73,8 @@ export default function Navigation({ onReplayIntro }: NavigationProps) {
             <img
               src="/images/lagoon_nav.jpg"
               alt="Lagoon Studio"
+              width={32}
+              height={32}
               className="app-icon h-8 w-8"
             />
             <span className="font-satoshi text-lg font-bold text-white">

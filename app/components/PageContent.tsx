@@ -1,7 +1,6 @@
 "use client";
 
-import { useState, useCallback } from "react";
-import { motion } from "motion/react";
+import { useState, useEffect, useLayoutEffect, useCallback, useRef } from "react";
 import Navigation from "./Navigation";
 import Hero from "./Hero";
 import FeatureCarousel from "./FeatureCarousel";
@@ -12,9 +11,57 @@ import Footer from "./Footer";
 const DOWNLOAD_URL =
   "https://github.com/TheNorthEestern/lagoon-releases/releases/latest/download/Lagoon-Studio.dmg";
 
+const INTRO_SEEN_KEY = "lagoon-intro-seen";
+
 export default function PageContent() {
   const [introComplete, setIntroComplete] = useState(false);
   const [replayCount, setReplayCount] = useState(0);
+  const navRef = useRef<HTMLDivElement>(null);
+  const contentRef = useRef<HTMLDivElement>(null);
+
+  // Before first paint: hide nav and content if intro hasn't been seen.
+  // Static HTML has no inline styles (visible to crawlers).
+  // JS hides synchronously before browser paints via useLayoutEffect.
+  useLayoutEffect(() => {
+    const seen = localStorage.getItem(INTRO_SEEN_KEY) === "true";
+    if (!seen) {
+      if (navRef.current) {
+        navRef.current.style.opacity = "0";
+        navRef.current.style.pointerEvents = "none";
+      }
+      if (contentRef.current) {
+        contentRef.current.style.opacity = "0";
+      }
+    } else {
+      setIntroComplete(true);
+    }
+  }, []);
+
+  // Fade in when intro completes
+  useEffect(() => {
+    if (introComplete) {
+      if (navRef.current) {
+        navRef.current.style.opacity = "1";
+        navRef.current.style.pointerEvents = "auto";
+      }
+      if (contentRef.current) {
+        contentRef.current.style.opacity = "1";
+      }
+    }
+  }, [introComplete]);
+
+  // Also hide when intro replays
+  useEffect(() => {
+    if (!introComplete) {
+      if (navRef.current) {
+        navRef.current.style.opacity = "0";
+        navRef.current.style.pointerEvents = "none";
+      }
+      if (contentRef.current) {
+        contentRef.current.style.opacity = "0";
+      }
+    }
+  }, [introComplete]);
 
   const handleIntroComplete = useCallback(() => {
     setIntroComplete(true);
@@ -30,14 +77,12 @@ export default function PageContent() {
 
   return (
     <>
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={introComplete ? { opacity: 1 } : { opacity: 0 }}
-        transition={{ duration: 0.8, ease: "easeOut" }}
-        style={{ pointerEvents: introComplete ? "auto" : "none" }}
+      <div
+        ref={navRef}
+        className="transition-opacity duration-800 ease-out"
       >
         <Navigation onReplayIntro={handleReplayIntro} />
-      </motion.div>
+      </div>
 
       <Hero
         onIntroComplete={handleIntroComplete}
@@ -45,10 +90,10 @@ export default function PageContent() {
         replayCount={replayCount}
       />
 
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={introComplete ? { opacity: 1 } : { opacity: 0 }}
-        transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
+      <div
+        ref={contentRef}
+        className="transition-opacity duration-800 ease-out"
+        style={{ transitionDelay: "0.2s" }}
       >
         <section id="features">
           <FeatureCarousel />
@@ -86,11 +131,14 @@ export default function PageContent() {
           <img
             src="/images/lagoon.jpg"
             alt="Lagoon Studio"
+            width={224}
+            height={224}
+            loading="lazy"
             className="app-icon h-40 w-40 md:h-56 md:w-56"
           />
         </div>
         <Footer />
-      </motion.div>
+      </div>
     </>
   );
 }

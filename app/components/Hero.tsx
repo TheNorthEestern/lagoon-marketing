@@ -239,7 +239,7 @@ export default function Hero({ onIntroComplete, onIntroStart, replayCount = 0 }:
             />
           </div>
         </div>
-        <div className="mx-auto mt-2 max-w-4xl text-center sm:mt-3 opacity-0">
+        <div className="mx-auto mt-2 max-w-4xl text-center sm:mt-3">
           <h1 className="font-satoshi text-4xl font-bold leading-[1.3] tracking-tight sm:text-5xl lg:text-6xl">
             Stop scrubbing.
             <br />

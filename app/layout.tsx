@@ -214,6 +214,20 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="dark">
+      <head>
+        <link
+          rel="preload"
+          href="/fonts/Satoshi-Bold.woff2"
+          as="font"
+          type="font/woff2"
+          crossOrigin="anonymous"
+        />
+        <link
+          rel="preload"
+          href="/images/hero-poster.jpg"
+          as="image"
+        />
+      </head>
       <body className={`${inter.variable} antialiased`}>
         <script
           type="application/ld+json"
