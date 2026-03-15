@@ -219,7 +219,7 @@ export default function Hero({ onIntroComplete, onIntroStart, replayCount = 0 }:
   // First render: plain div for measurement, invisible until useLayoutEffect fires
   if (!measured) {
     return (
-      <section className="relative flex min-h-[100svh] flex-col items-center justify-center overflow-hidden px-4 py-10 sm:px-6 sm:py-14">
+      <section className="relative flex min-h-[100svh] flex-col items-center justify-center overflow-hidden px-4 pt-24 pb-10 sm:px-6 sm:pt-24 sm:pb-14">
         <div ref={videoContainerRef} className="w-full max-w-[1200px] max-h-[50vh]">
           <div className="aspect-video w-full max-h-[50vh] relative">
             <video
@@ -266,7 +266,7 @@ export default function Hero({ onIntroComplete, onIntroStart, replayCount = 0 }:
   }
 
   return (
-    <section className="relative flex min-h-[100svh] flex-col items-center justify-center overflow-hidden px-4 py-10 sm:px-6 sm:py-14">
+    <section className="relative flex min-h-[100svh] flex-col items-center justify-center overflow-hidden px-4 pt-24 pb-10 sm:px-6 sm:pt-24 sm:pb-14">
       {/* Hero video */}
       <motion.div
         className="w-full max-w-[1200px] max-h-[50vh]"

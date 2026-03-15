@@ -229,17 +229,15 @@ export default function RootLayout({
         />
       </head>
       <body className={`${inter.variable} antialiased`}>
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify([
-              organizationSchema,
-              websiteSchema,
-              softwareSchema,
-              faqSchema,
-            ]),
-          }}
-        />
+        {[organizationSchema, websiteSchema, softwareSchema, faqSchema].map(
+          (schema, i) => (
+            <script
+              key={i}
+              type="application/ld+json"
+              dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+            />
+          )
+        )}
         {children}
       </body>
     </html>
