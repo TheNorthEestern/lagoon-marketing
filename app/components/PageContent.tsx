@@ -4,6 +4,8 @@ import { useState, useEffect, useLayoutEffect, useCallback, useRef } from "react
 import Navigation from "./Navigation";
 import Hero from "./Hero";
 import FeatureCarousel from "./FeatureCarousel";
+import UseCases from "./UseCases";
+import WhyLagoon from "./WhyLagoon";
 import FAQ from "./FAQ";
 import Pricing from "./Pricing";
 import Footer from "./Footer";
@@ -98,23 +100,28 @@ export default function PageContent() {
         <section id="features">
           <FeatureCarousel />
         </section>
-        {/* <section id="how-it-works">
-          <HowItWorks />
-        </section> */}
-        <section id="faq">
-          <FAQ />
+        {/* Social proof slot — drop in testimonials / install counts / sample clip gallery here later */}
+        <section id="use-cases">
+          <UseCases />
+        </section>
+        <section id="why-lagoon">
+          <WhyLagoon />
         </section>
         <section id="pricing">
           <Pricing />
         </section>
+        <section id="faq">
+          <FAQ />
+        </section>
         <section id="download" className="px-6 py-24 sm:py-32">
           <div className="mx-auto max-w-2xl text-center">
             <h2 className="text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl">
-              Download Lagoon Studio
+              Try it on your next recording.
             </h2>
             <p className="mx-auto mt-6 max-w-xl text-lg text-text-secondary">
-              Download Lagoon Studio for free. Upgrade to a paid license
-              anytime from within the app.
+              Download Lagoon Studio for free. Full features for 7 days. No
+              credit card, no upload cap. Upgrade from within the app whenever
+              you&rsquo;re ready.
             </p>
             <a
               href={DOWNLOAD_URL}
@@ -123,7 +130,7 @@ export default function PageContent() {
               Download for macOS
             </a>
             <p className="mt-4 text-sm text-text-secondary">
-              Requires macOS 14 or later. Optimized for Apple Silicon.
+              Requires macOS 14 or later. Built for Apple Silicon.
             </p>
           </div>
         </section>
