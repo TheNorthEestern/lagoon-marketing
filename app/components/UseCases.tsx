@@ -1,7 +1,8 @@
 const personas = [
   {
     title: "Podcasters",
-    description: "Extract the best moments from your long-form audio",
+    description:
+      "Find the laughs, the lean-ins, and the “wait, say that again” moments across a three-hour episode, before your editor even opens the file.",
     icon: (
       <svg
         className="h-10 w-10"
@@ -20,7 +21,8 @@ const personas = [
   },
   {
     title: "Streamers",
-    description: "Turn marathon streams into highlight reels",
+    description:
+      "Turn your last eight-hour stream into a stack of highlight-ready clips for TikTok, Shorts, or your editor. No uploads, no quota.",
     icon: (
       <svg
         className="h-10 w-10"
@@ -38,8 +40,9 @@ const personas = [
     ),
   },
   {
-    title: "Video Editors",
-    description: "Process client footage 10x faster",
+    title: "Video editors",
+    description:
+      "First-pass client footage in minutes. Cut the scrub time, keep the craft. Clips land in your editor as clean MP4s.",
     icon: (
       <svg
         className="h-10 w-10"
@@ -56,31 +59,6 @@ const personas = [
       </svg>
     ),
   },
-  {
-    title: "Content Creators",
-    description: "Find b-roll instantly. No more endless scrubbing",
-    icon: (
-      <svg
-        className="h-10 w-10"
-        fill="none"
-        stroke="currentColor"
-        viewBox="0 0 24 24"
-      >
-        <path
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          strokeWidth={1.5}
-          d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"
-        />
-        <path
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          strokeWidth={1.5}
-          d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-        />
-      </svg>
-    ),
-  },
 ];
 
 export default function UseCases() {
@@ -88,16 +66,16 @@ export default function UseCases() {
     <section className="px-6 py-24 sm:py-32">
       <div className="mx-auto max-w-[1200px]">
         <h2 className="text-center text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl">
-          Made for Creators
+          Made for long-form creators.
         </h2>
 
-        <div className="mt-16 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="mt-16 grid gap-8 sm:grid-cols-1 lg:grid-cols-3">
           {personas.map((persona) => (
             <div
               key={persona.title}
-              className="group rounded-2xl border border-border bg-white p-8 text-center transition-shadow hover:shadow-md"
+              className="rounded-2xl border border-border bg-surface p-8 text-center transition-colors hover:border-neutral-700"
             >
-              <div className="mx-auto mb-6 flex h-20 w-20 items-center justify-center rounded-2xl bg-surface text-text-secondary transition-colors group-hover:bg-accent/10 group-hover:text-accent">
+              <div className="mx-auto mb-6 flex h-16 w-16 items-center justify-center rounded-2xl bg-accent/10 text-accent">
                 {persona.icon}
               </div>
               <h3 className="text-xl font-semibold">{persona.title}</h3>

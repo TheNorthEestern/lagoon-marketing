@@ -1,29 +1,9 @@
 const differentiators = [
   {
-    title: "Simple",
-    description: "No learning curve. Open. Detect. Export.",
+    title: "Nothing uploads",
+    description: "Your footage stays on your Mac.",
     subtext:
-      "Unlike traditional editors, Lagoon does one thing and does it perfectly.",
-    icon: (
-      <svg
-        className="h-8 w-8"
-        fill="none"
-        stroke="currentColor"
-        viewBox="0 0 24 24"
-      >
-        <path
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          strokeWidth={1.5}
-          d="M13 10V3L4 14h7v7l9-11h-7z"
-        />
-      </svg>
-    ),
-  },
-  {
-    title: "Private",
-    description: "Your footage never leaves your computer.",
-    subtext: "All processing happens locally. No cloud uploads. No tracking.",
+      "Unreleased episodes, sponsor reads, embargoed interviews. None of it leaves your computer. No cloud queue, no account required.",
     icon: (
       <svg
         className="h-8 w-8"
@@ -41,10 +21,10 @@ const differentiators = [
     ),
   },
   {
-    title: "Fast",
-    description: "Optimized for Apple Silicon.",
+    title: "A native app, not a web app",
+    description: "Built in SwiftUI for Apple Silicon.",
     subtext:
-      "Hardware-accelerated motion detection. Process 6-hour videos in minutes.",
+      "Scrubs multi-hour 4K recordings like local files, because they are local files. Hardware-accelerated decoding, minimal CPU impact.",
     icon: (
       <svg
         className="h-8 w-8"
@@ -61,6 +41,27 @@ const differentiators = [
       </svg>
     ),
   },
+  {
+    title: "Buy it once",
+    description: "No monthly upload credits.",
+    subtext:
+      "No \"minutes processed\" meter, no tiered plans for your biggest episodes. $59 for lifetime access, or pay monthly if you prefer.",
+    icon: (
+      <svg
+        className="h-8 w-8"
+        fill="none"
+        stroke="currentColor"
+        viewBox="0 0 24 24"
+      >
+        <path
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeWidth={1.5}
+          d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8V6m0 12v-2m0-10a9 9 0 110 18 9 9 0 010-18z"
+        />
+      </svg>
+    ),
+  },
 ];
 
 export default function WhyLagoon() {
@@ -68,8 +69,11 @@ export default function WhyLagoon() {
     <section className="px-6 py-24 sm:py-32">
       <div className="mx-auto max-w-[1200px]">
         <h2 className="text-center text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl">
-          Built Different
+          The private way to find your next clip.
         </h2>
+        <p className="mx-auto mt-4 max-w-2xl text-center text-text-secondary">
+          Most clipping tools need your raw footage on someone else&rsquo;s server. Lagoon doesn&rsquo;t.
+        </p>
 
         <div className="mt-16 grid gap-8 sm:grid-cols-3">
           {differentiators.map((item) => (

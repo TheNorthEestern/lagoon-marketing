@@ -241,14 +241,12 @@ export default function Hero({ onIntroComplete, onIntroStart, replayCount = 0 }:
         </div>
         <div className="mx-auto mt-2 max-w-4xl text-center sm:mt-3">
           <h1 className="font-satoshi text-4xl font-bold leading-[1.3] tracking-tight sm:text-5xl lg:text-6xl">
-            Stop scrubbing.
+            Every clip-worthy moment.
             <br />
-            Instantly find the action.
+            Found automatically.
           </h1>
           <p className="font-satoshi mx-auto mt-5 max-w-2xl text-lg text-text-secondary sm:mt-6 sm:text-xl">
-            Automatically detect interesting motion in your videos.
-            Filter out the noise, visualize the activity, and export your clips in
-            seconds. Native. Private. Optimized for Apple Silicon.
+            Drop in a long podcast or stream. Lagoon surfaces the moments worth clipping and hands you clean MP4s, ready for Final Cut, Premiere, or DaVinci. Local, native, and built for Apple Silicon.
           </p>
           <a
             href={DOWNLOAD_URL}
@@ -327,14 +325,12 @@ export default function Hero({ onIntroComplete, onIntroStart, replayCount = 0 }:
         transition={autoplayBlocked ? { duration: 0 } : { duration: 0.8, delay: 0.3, ease: "easeOut" }}
       >
         <h1 className="font-satoshi text-4xl font-bold leading-[1.3] tracking-tight sm:text-5xl lg:text-6xl">
-          Stop scrubbing.
+          Every clip-worthy moment.
           <br />
-          Instantly find the action.
+          Found automatically.
         </h1>
         <p className="font-satoshi mx-auto mt-5 max-w-2xl text-lg text-text-secondary sm:mt-6 sm:text-xl">
-          Automatically detect interesting motion in your videos.
-          Filter out the noise, visualize the activity, and export your clips in
-          seconds. Native. Private. Optimized for Apple Silicon.
+          Drop in a long podcast or stream. Lagoon surfaces the moments worth clipping and hands you clean MP4s, ready for Final Cut, Premiere, or DaVinci. Local, native, and built for Apple Silicon.
         </p>
         <a
           href={DOWNLOAD_URL}

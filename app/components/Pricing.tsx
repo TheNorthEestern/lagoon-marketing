@@ -1,12 +1,12 @@
 export default function Pricing() {
   return (
-    <section className="px-6 pt-24 pb-8 sm:pt-32 sm:pb-10">
+    <section className="px-6 py-24 sm:py-32">
       <div className="mx-auto max-w-5xl">
         <h2 className="text-center text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl">
-          Simple pricing. No surprises.
+          Simple pricing. No upload meter.
         </h2>
         <p className="mt-4 text-center text-text-secondary">
-          Start with a free 7-day trial. No credit card required.
+          Less than one hour of freelance edit time. Start with a free 7-day trial. No credit card required.
         </p>
 
         <div className="mt-12 grid gap-6 md:grid-cols-3">
@@ -37,7 +37,7 @@ export default function Pricing() {
               </div>
             </div>
             <p className="mt-3 border-t border-border pt-3 text-base text-text-secondary">
-              Just $6.25/mo — save over $32 compared to monthly.
+              Just $6.25/mo. Save over $32 compared to monthly.
             </p>
           </div>
 

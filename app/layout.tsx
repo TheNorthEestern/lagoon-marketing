@@ -10,9 +10,9 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://lagoon.video"),
-  title: "Lagoon Studio - Stop scrubbing. Instantly find the action.",
+  title: "Lagoon Studio: Every clip-worthy moment in your recording. On your Mac.",
   description:
-    "Automatically detect interesting motion in your videos. Filter out the noise, visualize the activity, and export your clips in seconds. Native. Private. Optimized for Apple Silicon.",
+    "Drop in a long podcast or stream recording and Lagoon surfaces the moments worth clipping. Export clean MP4s ready for Final Cut, Premiere, or DaVinci. Native macOS. 100% local. Built for Apple Silicon.",
   alternates: {
     canonical: "/",
   },
@@ -20,9 +20,9 @@ export const metadata: Metadata = {
     icon: "/favicon.png",
   },
   openGraph: {
-    title: "Lagoon Studio - Stop scrubbing. Instantly find the action.",
+    title: "Lagoon Studio: Every clip-worthy moment in your recording. On your Mac.",
     description:
-      "Automatically detect interesting motion in your videos. Filter out the noise, visualize the activity, and export your clips in seconds.",
+      "Drop in a long podcast or stream recording and Lagoon surfaces the moments worth clipping. Export clean MP4s ready for your editor. Native macOS. 100% local.",
     url: "https://lagoon.video",
     type: "website",
     locale: "en_US",
@@ -32,7 +32,7 @@ export const metadata: Metadata = {
         url: "https://lagoon.video/images/og.png",
         width: 1200,
         height: 630,
-        alt: "Lagoon Studio - Automatic motion detection for macOS",
+        alt: "Lagoon Studio: clip-ready highlights from your long recordings, on your Mac",
       },
     ],
     videos: [
@@ -46,9 +46,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Lagoon Studio - Stop scrubbing. Instantly find the action.",
+    title: "Lagoon Studio: Every clip-worthy moment in your recording. On your Mac.",
     description:
-      "Automatically detect interesting motion in your videos. Filter out the noise, visualize the activity, and export your clips in seconds.",
+      "Drop in a long podcast or stream recording and Lagoon surfaces the moments worth clipping. Export clean MP4s ready for your editor. Native macOS. 100% local.",
     images: ["https://lagoon.video/images/og.png"],
   },
 };
@@ -82,7 +82,7 @@ const softwareSchema = {
   operatingSystem: "macOS 14+",
   applicationCategory: "MultimediaApplication",
   description:
-    "Automatically detect interesting motion in your videos. Filter out the noise, visualize the activity, and export your clips in seconds. Native. Private. Optimized for Apple Silicon.",
+    "Drop in a long podcast or stream recording and Lagoon surfaces the moments worth clipping. Export clean MP4s ready for your editor. Native macOS. 100% local. Built for Apple Silicon.",
   url: "https://lagoon.video",
   downloadUrl:
     "https://github.com/TheNorthEestern/lagoon-releases/releases/latest/download/Lagoon-Studio.dmg",
@@ -129,15 +129,15 @@ const faqSchema = {
       name: "What video formats does Lagoon support?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Lagoon supports H.264, HEVC, AV1, and most common video container formats including MP4, MKV, and WebM. It uses hardware-accelerated decoding on Apple Silicon, so even high-resolution footage processes efficiently.",
+        text: "Lagoon supports H.264, HEVC, AV1, and most common video container formats including MP4, MKV, and WebM. It uses hardware-accelerated decoding on Apple Silicon, so even high-resolution podcast or stream recordings process efficiently.",
       },
     },
     {
       "@type": "Question",
-      name: "How does motion detection work?",
+      name: "How does Lagoon find the clip-worthy moments?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Lagoon analyzes pixel changes between frames to identify moments with significant movement. You can choose between Fast, Balanced, and Accurate analysis modes depending on your needs, and fine-tune the motion detection threshold to filter out unwanted noise like camera shake or subtle lighting changes.",
+        text: "Lagoon analyzes every frame for conversational motion: hand gestures, lean-ins, reactions, on-camera action. It flags the segments that rise above a tunable threshold. Choose between Fast, Balanced, and Accurate modes to trade speed for thoroughness, and adjust sensitivity to match the energy of your content.",
       },
     },
     {
@@ -145,7 +145,7 @@ const faqSchema = {
       name: "Does Lagoon work offline?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Yes, completely. All video analysis and processing happens locally on your Mac. Your files never leave your device and no internet connection is required. The only network requests Lagoon makes are for license validation and checking for app updates.",
+        text: "Yes, completely. All analysis happens locally on your Mac. Your files never leave your device and no internet connection is required. The only network requests Lagoon makes are for license validation and checking for app updates.",
       },
     },
     {
@@ -153,31 +153,55 @@ const faqSchema = {
       name: "How long does analysis take?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Analysis is fast thanks to hardware-accelerated decoding on Apple Silicon. Exact times vary with video length, resolution, and your chosen analysis mode. Fast mode prioritizes speed, while Accurate mode examines more frames for thorough results.",
+        text: "Analysis is fast thanks to hardware-accelerated decoding on Apple Silicon. Exact times vary with recording length, resolution, and your chosen analysis mode. Fast mode prioritizes speed; Accurate mode examines more frames for thorough results.",
       },
     },
     {
       "@type": "Question",
-      name: "Can I adjust sensitivity?",
+      name: "Can I adjust what counts as a moment?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Yes. Toggle between Fast, Balanced, and Accurate analysis modes, and fine-tune the motion detection threshold slider to match your content. Lower thresholds catch subtle movement, while higher thresholds focus on significant action.",
+        text: "Yes. Toggle between Fast, Balanced, and Accurate modes, and fine-tune the sensitivity slider to match your content. Lower thresholds catch subtle movement like small gestures or lean-ins; higher thresholds focus only on significant action.",
       },
     },
     {
       "@type": "Question",
-      name: "What if I have a large file?",
+      name: "Will this work on a multi-hour podcast or stream recording?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Lagoon handles large files with ease. Processing time scales linearly with video length, and Apple Silicon hardware acceleration keeps things moving. You can continue using your Mac normally while analysis runs in the background.",
+        text: "Yes. Analysis scales linearly with length, and Apple Silicon hardware decoding keeps it fast. Lagoon runs in the background, so you can keep editing, recording, or streaming while it works through a three-hour episode or an eight-hour VOD.",
       },
     },
     {
       "@type": "Question",
-      name: "Can I export individual clips or full compilations?",
+      name: "Can I export individual clips or a compilation?",
       acceptedAnswer: {
         "@type": "Answer",
-        text: "Yes. Export each detected segment individually, or select multiple segments to export at once. Exported clips are saved as standard MP4 files that work with any video editor or media player.",
+        text: "Yes. Export each moment individually, or select multiple at once. Exports are standard MP4 files that open in any editor or media player, with configurable padding around each clip so you keep the setup and payoff.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Does Lagoon add captions or reframe clips for TikTok?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "No. Lagoon outputs standard MP4s at your source resolution. Use your editor, or the platform's native tools, to add captions and reframe to 9:16. Lagoon's job is to find the moments; your editor's job is to finish them.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Can Lagoon publish directly to YouTube, TikTok, or Instagram?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "No. Clips land in a folder on your Mac. You publish the way you already do: through your editor, scheduler, or the platform itself. Lagoon stays focused on the part that takes the longest: finding what's worth clipping.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "How does Lagoon compare to Opus, Cliphi, and other cloud clipping tools?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: "Different scope. Lagoon finds the moments locally on your Mac and hands you clean MP4s. Cloud tools handle captioning, reframing, and publishing too, but they need your footage uploaded to their servers and meter your processing minutes. Pick Lagoon when privacy, cost predictability, or speed-to-start matter; pick a cloud tool when you need the full social-publishing stack.",
       },
     },
     {
